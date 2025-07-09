@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .nav-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-item {
+            height: 74px;
+            min-width: 12.5%;
+            cursor: pointer;
+            line-height: 74px;
+            text-align: center;
+        }
+        .nav-link {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 0 20px;
+        }
+        .nav-link:hover {
+            background-color: #667eea;
+        }
+        .nav-item.active .nav-link {
+            background-color: #667eea;
+            color: white;
+        }
+        .nav-item.temp-inactive .nav-link {
+            background-color: transparent;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Other Demos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Guest Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">More</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Sample Page</a>
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const activeItem = document.querySelector('.nav-item.active');
+
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        if (activeItem) {
+                            activeItem.classList.add('temp-inactive');
+                        }
+                    }
+                });
+                item.addEventListener('mouseleave', function() {
+                    if (activeItem) {
+                        activeItem.classList.remove('temp-inactive');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
